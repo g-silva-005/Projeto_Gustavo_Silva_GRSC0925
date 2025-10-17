@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "LINUX É BUE BOM"
+echo "LINUX É BUEDI MAU MERMO"
