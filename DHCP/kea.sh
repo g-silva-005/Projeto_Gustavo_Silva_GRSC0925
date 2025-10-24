@@ -5,12 +5,12 @@ sudo dnf install -y kea
 
 #Colocar o ip estatico
 echo "A colocar o ip do server como estatico..."
-sudo nmcli connection modify ens192 ipv4.addresses 192.168.1.112/24
+sudo nmcli connection modify ens192 ipv4.addresses 192.168.1.254/24
 sudo nmcli connection modify ens192 ipv4.method manual
 
 #Pedir de ips para utilizar
 echo "Introduz uma gama de ips que  pertençam a mesma subnet do servidor dhcp 192.168.1.0/24:"
-echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( 192.168.1.112/24 ) nem o ips do gateway (192.168.1.254) estejam presentes!!"
+echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( 192.168.1.254/24 ) nem o ips do gateway (192.168.1.254) estejam presentes!!"
 read -p " Ip de inicío :" ip_inicio
 read -p " ip final:" ip_fim
 
@@ -18,7 +18,7 @@ read -p " ip final:" ip_fim
 subnet="^192\.168\.1\."
 mask="255.255.255.0"
 subrede="192.168.1.0/24"
-ip_servidor="192.168.1.112"
+ip_servidor="192.168.1.254"
 
 if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $ip_servidor ]] &&  [[ $ip_fim != $ip_servidor ]]; then
 echo " IPs válidos na subnet do servidor! :)"
