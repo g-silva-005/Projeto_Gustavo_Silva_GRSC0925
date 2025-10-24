@@ -57,7 +57,7 @@ ip_fim= $ip_fim
 ip_gateway= $ip_gateway
 
 echo "A aplicar as configurações..."
-sudo tee /etc/kea/kea-dhcp4.conf > /dev/null << END
+sudo cat > /etc/kea/kea-dhcp4.conf << END
 {
   "Dhcp4": {
     "interfaces-config": {
