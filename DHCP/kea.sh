@@ -56,8 +56,9 @@ while true; do
 		subnet="^192\.168\.1\."
 		mask="255.255.255.0"
 		subrede="192.168.1.0/24"
+		servidor= "$ip"
 
-		if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $ip]] &&  [[ $ip_fim != $ip ]]; then
+		if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $servidor ]] &&  [[ $ip_fim != $servidor ]]; then
 			echo " IPs válidos na subnet do servidor! :)"
 		else
 			echo " ERRO 232: Os IPs estão na subnet errado ou algum IP está com o mesmo ip do servidor. A fechar o programa..."
