@@ -39,7 +39,7 @@ while true; do
 		sudo dnf install -y kea
 
 		nmcli
-		read -p "Introduza o seu ip que está inserido na interface ens192" ip
+		read -p "Introduza o seu ip que está inserido na interface ens192: " ip
 		
 		#Colocar o ip estatico
 		echo "A colocar o ip do server como estatico..."
@@ -56,7 +56,6 @@ while true; do
 		subnet="^192\.168\.1\."
 		mask="255.255.255.0"
 		subrede="192.168.1.0/24"
-		servidor= "$ip"
 
 		if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $servidor ]] &&  [[ $ip_fim != $servidor ]]; then
 			echo " IPs válidos na subnet do servidor! :)"
@@ -84,14 +83,6 @@ while true; do
 		#backup
 		echo "Criação de um arquivo .org de modo a deixar mais fluida a leitura do ficheiro de configuração..."
 		sudo mv /etc/kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf.org
-
-		#Variavel do arquivo de DHCP
-
-		dns= $dns
-		subrede= $subrede
-		ip_inicio= $ip_inicio
-		ip_fim= $ip_fim
-		ip_gateway= $ip_gateway
 
 		echo "A aplicar as configurações..."
 		sudo tee /etc/kea/kea-dhcp4.conf > /dev/null << END
@@ -208,11 +199,11 @@ END
 						  },
 						  {
 							"name": "domain-name",
-							"data": "srv.world"
+							"data": "empresa.local"
 						  },
 						  {
 							"name": "domain-search",
-							"data": "srv.world"
+							"data": "empresa.local"
 						  }
 						],
 						"subnet4": [
