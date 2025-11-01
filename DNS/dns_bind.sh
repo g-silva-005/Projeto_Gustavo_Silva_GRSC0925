@@ -136,7 +136,7 @@ END
 		;;
 		2)
 		echo "---> BIND <---"
-		dig @$ip.empresa.local
+		dig @$ip empresa.local
 		echo "---> BIND <---"
 		echo "---> NSLOOKUP <---"
 		nslookup servidor1.empresa.local $ip
