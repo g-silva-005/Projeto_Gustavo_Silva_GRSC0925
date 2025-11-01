@@ -48,7 +48,7 @@ while true; do
 
 		#Pedir de ips para utilizar
 		echo "Introduz uma gama de ips que  pertençam a mesma subnet do servidor dhcp 192.168.1.0/24:"
-		echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( 192.168.1.112/24 ) nem o ips do gateway (192.168.1.254) estejam presentes!!"
+		echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( $ip/24 ) nem o ips do gateway (192.168.1.254) estejam presentes!!"
 		read -p " Ip de inicío :" ip_inicio
 		read -p " ip final:" ip_fim
 
