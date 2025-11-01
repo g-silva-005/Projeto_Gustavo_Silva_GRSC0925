@@ -272,6 +272,7 @@ END
 				exit 0
 			else
 				echo "Opcao invalida, tenta por sim ou nao."
+				break
 			fi
 		done
 		;;
