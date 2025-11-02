@@ -42,7 +42,7 @@ while true;do
 		read -p "Introduza o ip que está presente na interface ens192: " ip
 		read -p "Do ip introduzido anteriormente, introduza o ultimo octeto: " octeto
 		echo "----> A aplicar as configurações necessárias <----"
-		sudo cat << EOF_NAMEDCONF | sudo tee /etc/named.conf > /dev/null
+		sudo cat << END | sudo tee /etc/named.conf > /dev/null
 acl internal-network {
         192.168.1.0/24;
 };
@@ -91,10 +91,10 @@ zone "1.168.192.in-addr.arpa" IN {
         file "1.168.192.db";
         allow-update { none; };
 };
-EOF_NAMEDCONF
+END
 
 
-		sudo cat << EOF_FWD | sudo tee /var/named/empresa.local.lan > /dev/null
+		sudo cat << END | sudo tee /var/named/empresa.local.lan > /dev/null
 \$TTL 86400
 @   IN  SOA     servidor1.empresa.local. root.empresa.local. (
         1761555569  ; Serial
@@ -107,7 +107,7 @@ EOF_NAMEDCONF
 servidor1       IN  A       $ip
 @               IN  MX 10   servidor1.empresa.local.
 www             IN  A       192.168.1.120
-EOF_FWD
+END
 
 		sudo tee /var/named/1.168.192.db > /dev/null << END
 \$TTL 86400
@@ -179,4 +179,5 @@ O:::::::OOO:::::::OBB:::::BBBBBB::::::BRR:::::R     R:::::RII::::::IIG:::::GGGGG
      OOOOOOOOO     BBBBBBBBBBBBBBBBB   RRRRRRRR     RRRRRRRIIIIIIIIII      GGGGGG   GGGGAAAAAAA                   AAAAAAADDDDDDDDDDDDD             OOOOOOOOO     
 
 end
+
 
