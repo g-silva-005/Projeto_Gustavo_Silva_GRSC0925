@@ -41,10 +41,11 @@ while true;do
 		nmcli
 		read -p "Introduza o ip que está presente na interface ens192: " ip
 		read -p "Do ip introduzido anteriormente, introduza o ultimo octeto: " octeto
+		read -p "Indique a subnet (com / respetivamente ): " subnet
 		echo "----> A aplicar as configurações necessárias <----"
 		sudo cat << END | sudo tee /etc/named.conf > /dev/null
 acl internal-network {
-        192.168.1.0/24;
+        $subnet;
 };
 
 options {
@@ -179,5 +180,4 @@ O:::::::OOO:::::::OBB:::::BBBBBB::::::BRR:::::R     R:::::RII::::::IIG:::::GGGGG
      OOOOOOOOO     BBBBBBBBBBBBBBBBB   RRRRRRRR     RRRRRRRIIIIIIIIII      GGGGGG   GGGGAAAAAAA                   AAAAAAADDDDDDDDDDDDD             OOOOOOOOO     
 
 end
-
 
