@@ -40,24 +40,24 @@ while true; do
 
 		nmcli
 		read -p "Introduza o seu ip que está inserido na interface ens192: " ip
-		
+		read -p "Do ip introduzido anteriormente, insere o terceiro octeto: " terceiro
+		read -p "Introduza a subnet do servidor (com / respetivo): " subrede
+		read -p "Introduza a mascara da sua subnet: " mask
 		#Colocar o ip estatico
 		echo "A colocar o ip do server como estatico..."
 		sudo nmcli connection modify ens192 ipv4.addresses $ip/24
 		sudo nmcli connection modify ens192 ipv4.method manual
 
 		#Pedir de ips para utilizar
-		echo "Introduz uma gama de ips que  pertençam a mesma subnet do servidor dhcp 192.168.1.0/24:"
-		echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( $ip/24 ) nem o ips do gateway (192.168.1.254) estejam presentes!!"
+		echo "Introduz uma gama de ips que  pertençam a mesma subnet do servidor dhcp $subrede:"
+		echo "Atenção!!!! Não utilizar uma gama de IPS onde o ip do servidor ( $ip/24 ) nem o ips do gateway (.254) estejam presentes!!"
 		read -p " Ip de inicío :" ip_inicio
 		read -p " ip final:" ip_fim
 
 		#verificar o intervalo da gama de ips
-		subnet="^192\.168\.1\."
-		mask="255.255.255.0"
-		subrede="192.168.1.0/24"
+		subnet="^192\.168\.$terceiro\."
 
-		if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $servidor ]] &&  [[ $ip_fim != $servidor ]]; then
+		if [[ $ip_inicio =~ $subnet ]] && [[ $ip_fim =~ $subnet ]] && [[ $ip_inicio != $ip ]] &&  [[ $ip_fim != $ip ]]; then
 			echo " IPs válidos na subnet do servidor! :)"
 		else
 			echo " ERRO 232: Os IPs estão na subnet errado ou algum IP está com o mesmo ip do servidor. A fechar o programa..."
