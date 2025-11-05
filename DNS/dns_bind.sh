@@ -42,6 +42,10 @@ while true;do
 		read -p "Introduza o ip que está presente na interface ens192: " ip
 		read -p "Do ip introduzido anteriormente, introduza o ultimo octeto: " octeto
 		read -p "Indique a subnet (com / respetivamente ): " subnet
+
+		sudo nmcli connection modify ens192 ipv4.addresses $ip/24
+		sudo nmcli connection modify ens192 ipv4.method manual
+		
 		echo "----> A aplicar as configurações necessárias <----"
 		sudo cat << END | sudo tee /etc/named.conf > /dev/null
 acl internal-network {
@@ -180,4 +184,5 @@ O:::::::OOO:::::::OBB:::::BBBBBB::::::BRR:::::R     R:::::RII::::::IIG:::::GGGGG
      OOOOOOOOO     BBBBBBBBBBBBBBBBB   RRRRRRRR     RRRRRRRIIIIIIIIII      GGGGGG   GGGGAAAAAAA                   AAAAAAADDDDDDDDDDDDD             OOOOOOOOO     
 
 end
+
 
