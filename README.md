@@ -1,9 +1,17 @@
 # Projeto_Gustavo_Silva_GRSC0925
 Este projeto tem um script de DHCP e um script de DNS 
+
+---
+
+
 <div align="center">
          <img src="https://github.com/user-attachments/assets/ce0a71e3-1b30-401c-ac30-0ec6369539c9" width="450"/>
          <br>
 </div>
+
+---
+
+
 
 
 ## Intruçoes de uso
