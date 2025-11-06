@@ -1,4 +1,5 @@
 # Projeto_Gustavo_Silva_GRSC0925
+
 Este projeto tem um script de DHCP e um script de DNS 
 
 ---
@@ -11,10 +12,11 @@ Este projeto tem um script de DHCP e um script de DNS
 
 ---
 
+Tem como objetivo:
+- Automatizar processos
 
 
-
-## Intruçoes de uso
+## Instruções de uso
 
 1 - É necessário o servidor que for usado estes scripts tenham dois adaptadores de internet. Um em nat outro em bridged. 
 
